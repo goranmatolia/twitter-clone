@@ -16,7 +16,7 @@ dotenv.config();
 const connect = () => {
   mongoose.set("strictQuery", false);
   mongoose
-    .connect('mongodb+srv://goranmatolia:tKw8VnwC82HCiRmz@cluster0.g4mywec.mongodb.net/?retryWrites=true&w=majority')
+    .connect(process.env.MONGO)
     .then(() => {
       console.log("connect to mongodb database");
     })
@@ -39,7 +39,9 @@ app.get("*",function(_,res){
   })
 })
 
-app.listen(8000, () => {
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
   connect();
-  console.log("Listening to port");
+  console.log(`Listening to port ${PORT}`);
 });
