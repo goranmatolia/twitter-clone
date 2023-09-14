@@ -16,7 +16,7 @@ dotenv.config();
 const connect = () => {
   mongoose.set("strictQuery", false);
   mongoose
-    .connect(process.env.MONGO)
+    .connect('mongodb+srv://goranmatolia:tKw8VnwC82HCiRmz@cluster0.g4mywec.mongodb.net/?retryWrites=true&w=majority')
     .then(() => {
       console.log("connect to mongodb database");
     })
